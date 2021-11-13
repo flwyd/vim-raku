@@ -18,7 +18,11 @@ set cpo-=C
 
 setlocal formatoptions-=t
 setlocal formatoptions+=crqol
-setlocal keywordprg=p6doc
+if executable('p6doc') && !executable('rakudoc')
+    setlocal keywordprg=p6doc
+else
+    setlocal keywordprg=rakudoc
+endif
 
 setlocal comments=:#\|,:#=,:#
 setlocal commentstring=#%s
